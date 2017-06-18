@@ -103,7 +103,7 @@ function TA_TargetIcon(newTarget)
 			end
 		end
 
-		ClearTarget()
+		--ClearTarget()
 	end
 end
 
