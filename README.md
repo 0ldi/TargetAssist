@@ -1,5 +1,5 @@
 # TargetAssist
-Simple raid target icons.
+Simple raid target icons with HP bars.
 
 # Original creator
 [turinpt](https://github.com/turinpt/TargetAssist)
