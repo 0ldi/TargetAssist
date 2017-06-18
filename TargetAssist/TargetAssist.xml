@@ -1,0 +1,156 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Script file="TargetAssist.lua"/>
+
+	<Frame name="TAIconTemplate" drawLayer="BORDER" virtual="true" hidden="true">
+		<Size>
+			<AbsDimension x="40" y="40"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+                <Texture name="$parentTexture" file="Interface\TargetingFrame\UI-RaidTargetingIcons">
+                    <Size>
+                        <AbsDimension x="40" y="40"/>
+                    </Size>
+                </Texture>
+            </Layer>
+		</Layers>
+		<Frames>
+			<StatusBar name="$parentStatus" hidden="true">
+				<Size>
+					<AbsDimension x="35" y="5"/>
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="$parent" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="-7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="BACKGROUND">
+						<Texture setAllPoints="true">
+							<Color r="0" g="0" b="0" a="0.5"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<BarTexture file="Interface\AddOns\TargetAssist\Smooth"/>
+				<BarColor r="0" g="0.8" b="0"/>
+				<Scripts>
+					<OnLoad>
+						this:SetMinMaxValues(0, 100)
+						if ta_settings.healthbars then
+							this:Show()
+						end
+					</OnLoad>
+				</Scripts>
+			</StatusBar>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				this:SetWidth(ta_settings.size)
+				this:SetHeight(ta_settings.size)
+				this:SetScript("OnMouseDown", function()
+					TA_OnClick(this)
+				end)
+			</OnLoad>
+			<OnDragStart>
+				TAContainer:StartMoving()
+			</OnDragStart>
+			<OnDragStop>
+				TAContainer:StopMovingOrSizing()
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+
+	<Frame name="TAContainer" toplevel="true" movable="true" parent="UIParent">
+		<Size>
+			<AbsDimension x="10" y="10"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Frames>
+			<Frame name="TAIcon1" inherits="TAIconTemplate" id="1">
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon2" inherits="TAIconTemplate" id="2">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon1" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon3" inherits="TAIconTemplate" id="3">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon2" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon4" inherits="TAIconTemplate" id="4">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon3" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon5" inherits="TAIconTemplate" id="5">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon4" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon6" inherits="TAIconTemplate" id="6">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon5" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon7" inherits="TAIconTemplate" id="7">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon6" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="TAIcon8" inherits="TAIconTemplate" id="8">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="TAIcon7" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="2" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				TA_OnUpdate();
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+
+</Ui>

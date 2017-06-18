@@ -1,0 +1,29 @@
+<Bindings>
+	<Binding name="Target Next Mark" header="TARGETASSIST">
+		TA_TargetNextMark()
+	</Binding>
+	<Binding name="Target Skull">
+		TA_TargetIcon(8)
+	</Binding>
+	<Binding name="Target Cross">
+		TA_TargetIcon(7)
+	</Binding>
+	<Binding name="Target Triangle">
+		TA_TargetIcon(4)
+	</Binding>
+	<Binding name="Target Square">
+		TA_TargetIcon(6)
+	</Binding>
+	<Binding name="Target Moon">
+		TA_TargetIcon(5)
+	</Binding>
+	<Binding name="Target Diamond">
+		TA_TargetIcon(3)
+	</Binding>
+	<Binding name="Target Circle">
+		TA_TargetIcon(2)
+	</Binding>
+	<Binding name="Target Star">
+		TA_TargetIcon(1)
+	</Binding>
+</Bindings>
